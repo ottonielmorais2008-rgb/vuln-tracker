@@ -1,0 +1,233 @@
+:root {
+  --bg: #0b1016;
+  --bg-accent: #121a24;
+  --card: #141b24;
+  --text: #e8eef4;
+  --muted: #8b98a8;
+  --line: #243041;
+  --accent: #4aa3ff;
+  --accent-text: #041018;
+  --danger: #f04770;
+  --critical: #f04770;
+  --high: #f08a3d;
+  --medium: #e6c34a;
+  --low: #3ecf8e;
+  --shadow: 0 12px 36px rgba(0, 0, 0, 0.32);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; min-height: 100%; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(74, 163, 255, 0.08), transparent 50%),
+    var(--bg);
+}
+
+h1, h2 { letter-spacing: -0.03em; }
+h1 { margin: 0 0 0.25rem; font-size: 1.7rem; }
+h2 { margin: 0; font-size: 1.05rem; }
+p { margin: 0; }
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.5rem 0.95rem;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+button.primary {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: transparent;
+  font-weight: 600;
+}
+button.danger { color: var(--danger); border-color: rgba(240, 71, 112, 0.4); }
+button.link {
+  border: 0;
+  padding: 0;
+  color: var(--accent);
+  border-radius: 0;
+}
+
+.app {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 4rem;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.lede { color: var(--muted); max-width: 42rem; }
+
+.auth {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  min-width: min(100%, 280px);
+  box-shadow: var(--shadow);
+}
+
+.auth p { color: var(--muted); font-size: 0.92rem; }
+.auth-actions, .toolbar, .form-actions, .row-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.auth-actions { margin-top: 0.75rem; }
+.auth form { display: grid; gap: 0.5rem; margin-top: 0.75rem; }
+.mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.mode-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--low);
+}
+.mode-dot.demo { background: var(--medium); }
+
+.banner, .error {
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+.banner {
+  background: rgba(74, 163, 255, 0.08);
+  border: 1px solid rgba(74, 163, 255, 0.2);
+  color: var(--text);
+}
+.error {
+  background: rgba(240, 71, 112, 0.1);
+  border: 1px solid rgba(240, 71, 112, 0.35);
+  color: #ffd6de;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.85rem 0.95rem;
+}
+.card .label { color: var(--muted); font-size: 0.8rem; }
+.card .value {
+  font-size: 1.6rem;
+  font-weight: 650;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  margin-top: 0.15rem;
+}
+.card.critical { border-color: rgba(240, 71, 112, 0.45); }
+.card.high { border-color: rgba(240, 138, 61, 0.45); }
+.card.medium { border-color: rgba(230, 195, 74, 0.4); }
+.card.low { border-color: rgba(62, 207, 142, 0.4); }
+.card.overdue { border-color: var(--danger); background: rgba(240, 71, 112, 0.08); }
+.card.overdue .value { color: var(--danger); }
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.toolbar { margin: 0.85rem 0 0.75rem; }
+.toolbar input, .toolbar select, .auth input, form input, form select, form textarea {
+  background: var(--bg-accent);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.5rem 0.7rem;
+  min-width: 0;
+}
+.toolbar input[type="search"] { flex: 1; min-width: 180px; }
+
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.7rem 0.55rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th { color: var(--muted); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.03em; text-transform: uppercase; }
+tr.overdue { background: rgba(240, 71, 112, 0.08); }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.85rem; }
+.muted { color: var(--muted); }
+.notes { max-width: 18rem; color: var(--muted); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+.badge.Critical { color: var(--critical); background: rgba(240, 71, 112, 0.12); }
+.badge.High { color: var(--high); background: rgba(240, 138, 61, 0.12); }
+.badge.Medium { color: var(--medium); background: rgba(230, 195, 74, 0.12); }
+.badge.Low { color: var(--low); background: rgba(62, 207, 142, 0.12); }
+.badge.overdue-flag { color: var(--danger); background: rgba(240, 71, 112, 0.16); margin-left: 0.35rem; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+.form-grid label, .auth label { display: grid; gap: 0.3rem; font-size: 0.85rem; color: var(--muted); }
+.form-grid .wide { grid-column: 1 / -1; }
+form textarea { min-height: 5.5rem; resize: vertical; }
+.form-actions { margin-top: 0.9rem; }
+
+.empty { color: var(--muted); padding: 1.25rem 0.25rem; }
+
+@media (max-width: 720px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .top { flex-direction: column; }
+}
