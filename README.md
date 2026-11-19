@@ -4,7 +4,7 @@
 
 A small web app for tracking vulnerabilities in a home lab. Record a finding, see counts by severity and status, highlight overdue work, and export a CSV.
 
-**Live demo:** [https://LIVE_URL_PLACEHOLDER](https://LIVE_URL_PLACEHOLDER)
+**Live demo:** [https://vuln-tracker-seven.vercel.app](https://vuln-tracker-seven.vercel.app)
 
 ## What it does
 
